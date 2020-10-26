@@ -17,6 +17,10 @@ const io = socketIO(server);
 
 const client = new tmi.Client();
 
+app.get("/", (req, res) => {
+  res.sendStatus(200);
+});
+
 io.on("connection", (socket) => {
   socket.on("channel", (channelName) => {
     client.connect().then(() => {
